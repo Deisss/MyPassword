@@ -1,0 +1,147 @@
+<template name="siteSee">
+    {{> vaultSee vault=vault sites=sites site=site subInside="site-see-content" }}
+</template>
+
+<template name="site-see-content">
+    <div id="page-sub-site" class="sub-page">
+        {{#if site}}
+            {{> siteNotEmpty}}
+        {{else}}
+            {{> siteEmpty}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="siteEmpty">
+    <div class="ui one column stackable center aligned page grid">
+        <div class="column twelve wide">
+            <div class="nothing">
+                You don't have any site yet.
+                {{#if canAddSite vault}}
+                    Why not <a href="{{pathFor 'siteCreate' _id=vault._id}}">create one</a>.
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="siteNotEmpty">
+    <h3>{{site.title}}</h3>
+
+    <div class="presenter">
+        <div class="ui items">
+            <div class="item">
+                <div class="image">
+                    {{#if site.url}}
+                    <img class="ui medium image" src="http://api.webthumbnail.org/?width=200&height=180&screen=1024&url={{encode site.url}}" alt="Thumbnail" />
+                    {{/if}}
+                </div>
+                <div class="content">
+                    <div class="ui raised">
+                        <a class="ui ribbon label">Informations</a>
+                        <div class="description">
+                            <i class="linkify icon"></i>
+                            <a href="{{site.url}}" target="_blank">{{site.url}}</a><br />
+                        </div>
+                    </div>
+                    {{#if site.accounts}}
+                        <div class="ui raised">
+                            <a class="ui ribbon label separator">Accounts</a>
+                            <div class="ui three column grid stackable">
+                            {{#each site.accounts}}
+                                <div class="column">
+                                    <div class="ui horizontal segment">
+                                        <small class="ui header">{{prettyAccount title}}</small>
+                                        <div class="description">
+                                            <i class="user icon purple"></i>
+                                            <span>{{login}}</span><br />
+                                            <i class="mail icon teal"></i>
+                                            <span>{{email}}</span><br />
+                                            <div class="password-field">
+                                                <i class="unlock alternate icon blue"></i>
+                                                <span>{{password}}</span>
+                                            </div>
+                                            <div class="text-right reveal-password">
+                                                <a class="ui button tiny">Reveal password</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    {{#if site.keys}}
+                        <div class="ui raised">
+                            <a class="ui ribbon label separator">Keys</a>
+                            <div class="ui three column grid stackable">
+                            {{#each site.keys}}
+                                <div class="column">
+                                    <div class="ui horizontal segment">
+                                        <small class="ui header">{{prettyKey title}}</small>
+                                        <div class="description">
+                                            <div class="key-title">{{prettyKey title}}</div>
+                                            <div class="key-content">{{content}}</div>
+                                            <div class="text-right reveal-key">
+                                                <a class="ui button tiny">Reveal key</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            </div>
+                        </div>
+                    {{/if}}
+
+
+                    {{#if site.note}}
+                        <div class="ui raised">
+                            <a class="ui ribbon label separator">Note</a>
+                            <p>
+                                {{#markdown}}{{site.note}}{{/markdown}}
+                            </p>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        <div class="extra">
+            {{#if canEditSite vault}}
+                <div class="ui right floated button orange site-edit">
+                    Edit
+                </div>
+            {{else}}
+                {{#if canDeleteSite vault}}
+                    <div class="ui right floated button orange site-edit">
+                        Edit
+                    </div>
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Modal box -->
+    <div class="hidden">
+        <div class="ui key-revealer small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Key for <span class="key-title"></span>
+            </div>
+            <div class="content">
+                <form class="ui form">
+                    <div class="field">
+                        <textarea class="key-content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    OK
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

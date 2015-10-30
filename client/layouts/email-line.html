@@ -1,0 +1,19 @@
+<template name="emailLine">
+    <div class="email email-line">
+        <div class="ui corner labeled left action input fluid">
+            <div class="ui button">
+                &times;
+            </div>
+            <input type="text" name="email" value="{{address}}" placeholder="Email..." />
+            {{#if verified}}
+                <div class="ui corner label teal">
+                    <i class="checkmark icon"></i>
+                </div>
+            {{else}}
+                <div class="ui corner label red">
+                    <i class="remove icon"></i>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,18 @@
+<template name="rsaLine">
+    <div class="rsa-line">
+        <h6 class="ui header">
+            RSA Key
+            <a>&times;</a>
+        </h6>
+        <div class="field">
+            <div class="ui input">
+                <input type="text" name="rsa-title" placeholder="Key title..." value="{{title}}" />
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui input">
+                <textarea name="rsa-content" placeholder="SSH/RSA Key...">{{content}}</textarea>
+            </div>
+        </div>
+    </div>
+</template>

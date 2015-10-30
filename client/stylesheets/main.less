@@ -1,0 +1,407 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('/font/avenir-light.otf');
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url('/font/avenir-light.ttf') format('truetype');
+}
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url(/img/bg.jpg);
+}
+
+.text-left {text-align: left}
+.text-right {text-align: right}
+.text-center {text-align: center}
+.text-justify {text-align: justify}
+
+.button.link {
+    background: none;
+    font-weight: normal;
+}
+
+.button.link:hover {
+    background: none;
+}
+
+
+.at-form {
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    box-shadow: 0px 0px 0px rgba(110, 83, 46, 0.5);
+    margin-top: 50px !important;
+}
+
+.no-left-padding {padding-left: 0 !important}
+.no-right-padding {padding-right: 0 !important}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Avenir', Arial, Verdana, 'Times new roman';
+    font-weight: normal;
+    color: #666;
+
+    &.dividing {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 5px;
+    }
+}
+
+h1 {font-size: 2.75em;}
+h2 {font-size: 2.3125em;}
+h3 {font-size: 1.6875em;}
+h4 {font-size: 1.4375em;}
+h5 {font-size: 1.125em;}
+h6 {font-size: 1em;}
+
+.brand a {
+    color: #444;
+}
+
+#full-size {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 30px;
+}
+
+#sign-out-link {
+    box-shadow: 0px 0px 2px rgba(110, 83, 46, 0.5);
+    margin-top: 5px;
+    display: inline-block;
+    .menu a {
+        color: black;
+    }
+}
+
+#page-container {
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    background: rgba(110, 83, 46, 0.2);
+    box-shadow: inset 0px 0px 5px rgba(110, 83, 46, 0.5);
+    padding: 20px 50px;
+}
+
+
+.wrapper {
+    height: calc(~"100% - 80px");
+}
+
+.box {
+    background-color: white;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(110, 83, 46, 0.5);
+    height: 100%;
+    padding: 20px 5px !important;
+
+    .scrollbar {
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.main-menu {
+    height: 100%;
+    overflow: hidden;
+    ul {
+        padding-left: 20px;
+        margin-top: 0 !important;
+        list-style: none;
+        li {
+            padding: 10px 15px;
+            &:hover {
+                .right-settings {
+                    opacity: 1;
+                }
+            }
+        }
+
+        li.selected, li.active {
+            background-color: white;
+            -webkit-border-radius: 5px 0px 0px 5px;
+               -moz-border-radius: 5px 0px 0px 5px;
+                    border-radius: 5px 0px 0px 5px;
+            box-shadow: 0px 0px 5px rgba(110, 83, 46, 0.5);
+        }
+    }
+    a {
+        color: #444;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+    div.plus {
+        color: #666;
+        float: right;
+        margin-right: 15px;
+        &:after {
+            clear: both;
+        }
+        a {
+            color: #666;
+        }
+    }
+
+    .right-settings {
+        opacity: 0;
+        cursor: pointer;
+        color: #666;
+        float: right;
+        -webkit-transition: opacity 1s ease-out;
+           -moz-transition: opacity 1s ease-out;
+             -o-transition: opacity 1s ease-out;
+                transition: opacity 1s ease-out;
+        &:after {
+            clear: both;
+        }
+    }
+}
+
+/*
+----------------
+  GENERATOR
+----------------
+*/
+#page-generator {
+    .generator {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .expert-content {
+            display: none;
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+    .generate {
+        color: inherit;
+    }
+    .progress {
+        margin-bottom: 0px;
+    }
+    .generated {
+        input {
+            width: 100%;
+            line-height: 28px;
+            border: 0px none;
+        }
+        i {
+            cursor: pointer;
+        }
+    }
+}
+
+/*
+----------------
+  USER ACCOUNT / OPTIONS
+----------------
+*/
+#page-options {
+    .ribbon {
+        margin-bottom: 10px;
+    }
+    .email-add {
+        cursor: pointer;
+    }
+    .email-line {
+        input {
+            -webkit-border-top-left-radius: 0px;
+               -moz-border-top-left-radius: 0px;
+                    border-top-left-radius: 0px;
+            -webkit-border-bottom-left-radius: 0px;
+               -moz-border-bottom-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+        }
+    }
+}
+
+/*
+----------------
+  VAULT PAGES
+----------------
+*/
+#page-vault {
+    .trash.icon, .user-add {
+        cursor: pointer;
+    }
+    .site-add {
+        line-height: 30px;
+        font-weight: bold;
+
+        .button {
+
+        }
+    }
+    .creator {
+        margin-top: 40px;
+        .dropdown {
+            margin-right: 10px;
+            .menu {
+                & > div.item {
+                    display: inline-block;
+                    i {
+                        margin-right: 0px;
+                        font-size: 1.35em;
+                    }
+                }
+            }
+        }
+        .button a {
+            color: white;
+        }
+    }
+
+    table.users {
+        margin-top: 40px;
+    }
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .site-list {
+        .list {
+            padding-left: 20px;
+            list-style: none;
+        }
+        i.caret {
+            display: none;
+        }
+        .active {
+            i {
+                display: inline-block;
+            }
+            .content {
+                display: inline-block;
+            }
+            a {
+                color: #00b2f3 !important;
+            }
+        }
+    }
+
+    #page-sub-site {
+        .ui.dropdown {
+            margin-top: 8px;
+            .menu {
+                & > div.item {
+                    display: inline-block;
+                    i {
+                        margin-right: 0px;
+                        font-size: 1.35em;
+                    }
+                }
+            }
+        }
+        .rsa-add, .account-add {
+            cursor: pointer;
+        }
+
+        .site-creator {
+            padding-left: 20px;
+
+            .ui.dropdown .text i {
+                display: inline;
+            }
+
+            .ribbon {
+                margin-bottom: 10px;
+            }
+
+            .markdown-icons {
+                background-color: #e0e0e0 !important;
+
+                .button {
+                    border-radius: 0px !important;
+                    sub {
+                        margin-left: -4px;
+                    }
+                }
+            }
+
+            .markdown-area {
+                border-top-left-radius: 0px !important;
+                border-top-right-radius: 0px !important;
+            }
+        }
+
+        .presenter {
+            img {
+                float: right;
+                &:after {
+                    clear: both;
+                }
+            }
+
+            .ribbon {
+                margin-bottom: 10px;
+            }
+
+            .segment {
+                .header {
+                    font-weight: bold;
+                    font-size: 1em;
+                }
+                .button {
+                    margin-top: 5px;
+                    padding: 6px 14px;
+                    &.tiny {
+                        background-color: inherit !important;
+                        color: green
+                    }
+                }
+                .password-field {
+                    display: none;
+                }
+                .description {
+                    padding-left: 5px;
+                }
+                .key-title, .key-content {
+                    display: none;
+                }
+            }
+            .content {
+                padding-left: 40px
+            }
+            .separator {
+                margin-top: 20px;
+            }
+        }
+
+        .rsa-line, .account-line {
+            margin-top: 15px;
+            h6 {
+                padding-left: 10px;
+            }
+            h6 a {
+                float: right;
+                margin-right: 8px;
+                cursor: pointer;
+                &:after {
+                    clear: both;
+                }
+            }
+        }
+    }
+}

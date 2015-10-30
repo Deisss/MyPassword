@@ -1,0 +1,134 @@
+<template name="page">
+    <div id="full-size">
+        <div id="page-container">
+            <!-- Header -->
+            <div class="ui grid">
+                <div class="eight wide column no-left-padding">
+                    <h1 class="brand">
+                        <a href="{{pathFor 'home'}}">
+                            MyPassword
+                        </a>
+                    </h1>
+                </div>
+                <div class="text-right eight wide column no-right-padding">
+                    <div id="sign-out-link" class="ui horizontal inverted orange menu">
+                        <div class="ui icon dropdown item">
+                            <i class="settings icon"></i>
+                            Logged as {{prettyUser user}}
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item options">
+                                    <a href="{{pathFor 'options'}}">Options</a>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="item logout">
+                                    <a>Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="wrapper ui doubling grid">
+                <!-- Main menu -->
+                <div class="main-menu three wide column no-right-padding scrollbar">
+                    <div class="ui accordion">
+                        <div class="{{isActiveRoute regex='^generator$'}} title">
+                            <h3>
+                                <i class="settings icon"></i>
+                                Tools
+                            </h3>
+                        </div>
+                        <div class="{{isActiveRoute regex='^generator$'}} content">
+                            <ul>
+                                <li class="{{isActiveRoute regex='^generator$'}}">
+                                    <a href="{{pathFor 'generator'}}">Generate password</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ui accordion">
+                        <div class="active title">
+                            <h3>
+                                <i class="spy icon"></i>
+                                My Vaults
+                                <div class="plus">
+                                    <a href="{{pathFor 'vaultCreate'}}">
+                                        <i class="plus icon"></i>
+                                    </a>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="active content">
+                            <ul>
+                                {{#each vaults}}
+                                    {{#if this.users.length}}
+                                    {{else}}
+                                        <li class="
+                                        {{#if equals this._id ../vault._id}}
+                                            active
+                                        {{/if}}
+                                        ">
+                                            <i class="{{icon}} icon"></i>
+                                            <a class="vault" href="{{pathFor 'vaultSee' _id=this._id}}">{{title}}</a>
+                                            {{#if canEditVault .}}
+                                                <a class="right-settings" href="{{pathFor 'vaultEdit' _id=this._id}}">
+                                                    <i class="settings icon"></i>
+                                                </a>
+                                            {{/if}}
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ui accordion">
+                        <div class="active title">
+                            <h3>
+                                <i class="users icon"></i>
+                                Shared Vaults
+                                <div class="plus">
+                                    <a href="{{pathFor 'vaultCreate'}}">
+                                        <i class="plus icon"></i>
+                                    </a>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="active content">
+                            <ul>
+                                {{#each vaults}}
+                                    {{#if this.users.length}}
+                                        <li class="
+                                        {{#if equals this._id ../vault._id}}
+                                            active
+                                        {{/if}}
+                                        ">
+                                            <i class="{{icon}} icon"></i>
+                                            <a class="vault" href="{{pathFor 'vaultSee' _id=this._id}}">{{title}}</a>
+                                            {{#if canEditVault .}}
+                                                <a class="right-settings" href="{{pathFor 'vaultEdit' _id=this._id}}">
+                                                    <i class="settings icon"></i>
+                                                </a>
+                                            {{/if}}
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main page -->
+                <div class="box thirteen wide doubling column">
+                    <div class="scrollbar">
+                        {{> Template.dynamic template=inside }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

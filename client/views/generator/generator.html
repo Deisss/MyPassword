@@ -1,0 +1,44 @@
+<template name="generator">
+    {{> page username="Charles" inside="generator-content"}}
+</template>
+
+<template name="generator-content">
+    <div id="page-generator" class="page">
+        <h2 class="dividing">Password generator</h2>
+
+        <div class="ui grid">
+            <div class="ui one column stackable center aligned">
+                <div class="generator">
+                    <div class="ui button link simple-content">
+                        <a class="expert">Switch to expert mode</a>
+                    </div>
+                    <div class="expert-content">
+                        <div class="ui button link">
+                            <a class="simple">Go back to simple mode</a>
+                        </div>
+                        <div class="ui input">
+                            <input id="generator-length" type="text" placeholder="Length" value="12" />
+                            <input id="generator-regex"  type="text" placeholder="Regex"  value="[\d\w\p]" />
+                        </div>
+                    </div>
+                    <div class="ui button red inverted">
+                        <a class="generate">Generate</a>
+                    </div>
+                </div>
+
+                <table class="ui celled structured table generated">
+                    <thead>
+                        <tr>
+                            <th width="45%">Password</th>
+                            <th width="5%">Length</th>
+                            <th width="45%">Strength</th>
+                            <th width="5%">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

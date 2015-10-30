@@ -1,0 +1,44 @@
+<template name="vaultSee">
+    {{> page inside="vault-see-content" vault=vault sites=sites site=site subInside=subInside }}
+</template>
+
+<template name="vault-see-content">
+    <div id="page-vault" class="page">
+        <h2 class="dividing">{{vault.title}}</h2>
+        <div class="ui grid">
+            <div class="three wide column site-list">
+                {{#if canAddSite vault}}
+                    <div class="ui site-add">
+                        <div class="ui button fluid primary">
+                            <i class="add square inverted icon"></i>
+                            Add Site
+                        </div>
+                    </div>
+                {{/if}}
+                <div class="ui list">
+                    {{#each sites}}
+                        <div class="item
+                        {{#if ../site}}
+                            {{#if equals _id ../site._id}}
+                                active
+                            {{/if}}
+                        {{/if}}
+                        ">
+                            <i class="caret right icon"></i>
+                            {{prettyIcon this.icon}}
+                            <div class="content">
+                                <a href="{{pathFor 'siteSee' _id=../vault._id _sId=this._id}}">{{title}}</a>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="thirteen wide column">
+                {{#if subInside}}
+                    {{> Template.dynamic template=subInside }}
+                {{else}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

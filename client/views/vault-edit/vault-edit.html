@@ -1,0 +1,174 @@
+<template name="vaultEdit">
+    {{> page inside="vault-edit-content" vault=vault }}
+</template>
+
+<template name="vault-edit-content">
+    <div id="page-vault" class="page">
+        <h2 class="dividing">Edit {{vault.title}}</h2>
+        <form class="creator ui grid">
+            <div class="ui one column stackable center aligned">
+                <div class="ui dropdown">
+                    <div class="text">
+                        <i class="{{vault.icon}} icon"></i>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <!--
+                            BASICS ICONS
+                        -->
+                        <div class="header">Basics</div>
+                        <div class="item">         <i class="spy icon"></i>                </div>
+                        <div class="item">         <i class="user icon"></i>               </div>
+                        <div class="item">         <i class="users icon"></i>              </div>
+                        <div class="item">         <i class="at icon"></i>                 </div>
+                        <div class="item">         <i class="bug icon"></i>                </div>
+                        <div class="item">         <i class="mail icon"></i>               </div>
+                        <div class="item">         <i class="comment icon"></i>            </div>
+                        <div class="item">         <i class="comments icon"></i>           </div>
+
+                        <br />
+
+                        <div class="item">         <i class="feed icon"></i>               </div>
+                        <div class="item">         <i class="idea icon"></i>               </div>
+                        <div class="item">         <i class="payment icon"></i>            </div>
+                        <div class="item">         <i class="privacy icon"></i>            </div>
+                        <div class="item">         <i class="shop icon"></i>               </div>
+                        <div class="item">         <i class="terminal icon"></i>           </div>
+                        <div class="item">         <i class="wifi icon"></i>               </div>
+                        <div class="item">         <i class="ticket icon"></i>             </div>
+
+                        <br />
+
+                        <div class="item">         <i class="doctor icon"></i>             </div>
+                        <div class="item">         <i class="student icon"></i>            </div>
+                        <div class="item">         <i class="bar icon"></i>                </div>
+                        <div class="item">         <i class="taxi icon"></i>               </div>
+                        <div class="item">         <i class="bomb icon"></i>               </div>
+                        <div class="item">         <i class="cocktail icon"></i>           </div>
+                        <div class="item">         <i class="magnet icon"></i>             </div>
+                        <div class="item">         <i class="plane icon"></i>              </div>
+
+
+                        <div class="divider"></div>
+                        <!--
+                            PROVIDES ICONS
+                        -->
+                        <div class="header">Brands</div>
+
+                        <div class="item">         <i class="android icon"></i>            </div>
+                        <div class="item">         <i class="apple icon"></i>              </div>
+                        <div class="item">         <i class="bitcoin icon"></i>            </div>
+                        <div class="item">         <i class="delicious icon"></i>          </div>
+                        <div class="item">         <i class="deviantart icon"></i>         </div>
+                        <div class="item">         <i class="digg icon"></i>               </div>
+                        <div class="item">         <i class="dropbox icon"></i>            </div>
+                        <div class="item">         <i class="facebook icon"></i>           </div>
+
+                        <br />
+
+                        <div class="item">         <i class="flickr icon"></i>             </div>
+                        <div class="item">         <i class="github icon"></i>             </div>
+                        <div class="item">         <i class="google icon"></i>             </div>
+                        <div class="item">         <i class="lastfm icon"></i>             </div>
+                        <div class="item">         <i class="linux icon"></i>              </div>
+                        <div class="item">         <i class="pinterest icon"></i>          </div>
+                        <div class="item">         <i class="reddit icon"></i>             </div>
+                        <div class="item">         <i class="skype icon"></i>              </div>
+
+                        <br />
+
+                        <div class="item">         <i class="slideshare icon"></i>         </div>
+                        <div class="item">         <i class="soundcloud icon"></i>         </div>
+                        <div class="item">         <i class="spotify icon"></i>            </div>
+                        <div class="item">         <i class="stack overflow icon"></i>     </div>
+                        <div class="item">         <i class="steam icon"></i>              </div>
+                        <div class="item">         <i class="trello icon"></i>             </div>
+                        <div class="item">         <i class="tumblr icon"></i>             </div>
+                        <div class="item">         <i class="twitter icon"></i>            </div>
+
+                        <br />
+
+                        <div class="item">         <i class="vimeo icon"></i>              </div>
+                        <div class="item">         <i class="vine icon"></i>               </div>
+                        <div class="item">         <i class="vk icon"></i>                 </div>
+                        <div class="item">         <i class="whatsapp icon"></i>           </div>
+                        <div class="item">         <i class="windows icon"></i>            </div>
+                        <div class="item">         <i class="wordpress icon"></i>          </div>
+                        <div class="item">         <i class="yahoo icon"></i>              </div>
+                        <div class="item">         <i class="youtube icon"></i>            </div>
+                    </div>
+                </div>
+                <div class="ui input">
+                    <input type="text" id="vault-edit-name" placeholder="Name..." value="{{vault.title}}" />
+                </div>
+
+                <table class="ui celled structured table users">
+                    <thead>
+                        <tr>
+                            <th width="55%" rowspan="2">
+                                Email (
+                                <a class="user-add">+ Add user</a>
+                                )
+                            </th>
+                            <th width="40%" colspan="3">Access control</th>
+                            <th width="5%" rowspan="2">Options</th>
+                        </tr>
+                        <tr>
+                            <th>Create site</th>
+                            <th>Update site</th>
+                            <th>Delete site</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each vault.users}}
+                            {{> userLine}}
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <div class="ui stackable grid">
+                    <div class="twelve wide column text-left">
+                        <small>You don't need to add yourself</small>
+                        <br />
+                        <small>Add extra user here to switch between personal/shared vault</small>
+                    </div>
+                    <div class="four wide column text-right">
+                        <a class="user-add">+ Add user</a>
+                    </div>
+                </div>
+
+                <div class="text-right button-container">
+                    <div class="ui button button-update green">
+                        Update
+                    </div>
+                    <div class="ui button button-delete red">
+                        Delete
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Modal box -->
+    <div class="hidden">
+        <div class="ui vaul-delete small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Delete {{vault.title}}
+            </div>
+            <div class="content">
+                <p>Are you sure you want to delete the vault {{vault.title}}</p>
+            </div>
+            <div class="actions">
+                <div class="ui negative button">
+                    No
+                </div>
+                <div class="ui positive right labeled icon button">
+                    Yes
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

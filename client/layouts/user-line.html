@@ -1,0 +1,47 @@
+<template name="userLine">
+    <tr>
+        <td>
+            <div class="ui input fluid">
+                <input name="email" type="text" placeholder="Email..." value="{{email}}" />
+            </div>
+        </td>
+        <td>
+            {{#if create}}
+                <div class="ui toggle checkbox checked">
+                    <input name="create" type="checkbox" checked="checked" />
+                </div>
+            {{else}}
+                <div class="ui toggle checkbox">
+                    <input name="create" type="checkbox" />
+                </div>
+            {{/if}}
+        </td>
+        <td>
+            {{#if update}}
+                <div class="ui toggle checkbox checked">
+                    <input name="update" type="checkbox" checked="checked" />
+                </div>
+            {{else}}
+                <div class="ui toggle checkbox">
+                    <input name="update" type="checkbox" />
+                </div>
+            {{/if}}
+        </td>
+        <td>
+            {{#if delete}}
+                <div class="ui toggle checkbox checked">
+                    <input name="delete" type="checkbox" checked="checked" />
+                </div>
+            {{else}}
+                <div class="ui toggle checkbox">
+                    <input name="delete" type="checkbox" />
+                </div>
+            {{/if}}
+        </td>
+        <td>
+            <div class="text-right">
+                <i class="trash icon"></i>
+            </div>
+        </td>
+    </tr>
+</template>

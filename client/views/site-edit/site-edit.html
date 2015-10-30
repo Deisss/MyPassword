@@ -1,0 +1,244 @@
+<template name="siteEdit">
+    {{> vaultSee vault=vault sites=sites subInside="site-edit-content" }}
+</template>
+
+<template name="site-edit-content">
+    <div id="page-sub-site" class="sub-page">
+        <form class="site-creator ui form">
+            <h4 class="ui ribbon label">Informations</h4>
+
+            <div class="ui stackable grid">
+                <div class="one wide column no-right-padding">
+                    <div class="ui dropdown">
+                        <div class="text">{{prettyIcon site.icon}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <!--
+                                BASICS ICONS
+                            -->
+                            <div class="header">Basics</div>
+                            <div class="item">         <i class="spy icon"></i>                </div>
+                            <div class="item">         <i class="user icon"></i>               </div>
+                            <div class="item">         <i class="users icon"></i>              </div>
+                            <div class="item">         <i class="at icon"></i>                 </div>
+                            <div class="item">         <i class="bug icon"></i>                </div>
+                            <div class="item">         <i class="mail icon"></i>               </div>
+                            <div class="item">         <i class="comment icon"></i>            </div>
+                            <div class="item">         <i class="comments icon"></i>           </div>
+
+                            <br />
+
+                            <div class="item">         <i class="feed icon"></i>               </div>
+                            <div class="item">         <i class="idea icon"></i>               </div>
+                            <div class="item">         <i class="payment icon"></i>            </div>
+                            <div class="item">         <i class="privacy icon"></i>            </div>
+                            <div class="item">         <i class="shop icon"></i>               </div>
+                            <div class="item">         <i class="terminal icon"></i>           </div>
+                            <div class="item">         <i class="wifi icon"></i>               </div>
+                            <div class="item">         <i class="ticket icon"></i>             </div>
+
+                            <br />
+
+                            <div class="item">         <i class="doctor icon"></i>             </div>
+                            <div class="item">         <i class="student icon"></i>            </div>
+                            <div class="item">         <i class="bar icon"></i>                </div>
+                            <div class="item">         <i class="taxi icon"></i>               </div>
+                            <div class="item">         <i class="bomb icon"></i>               </div>
+                            <div class="item">         <i class="cocktail icon"></i>           </div>
+                            <div class="item">         <i class="magnet icon"></i>             </div>
+                            <div class="item">         <i class="plane icon"></i>              </div>
+
+
+                            <div class="divider"></div>
+                            <!--
+                                PROVIDES ICONS
+                            -->
+                            <div class="header">Brands</div>
+
+                            <div class="item">         <i class="android icon"></i>            </div>
+                            <div class="item">         <i class="apple icon"></i>              </div>
+                            <div class="item">         <i class="bitcoin icon"></i>            </div>
+                            <div class="item">         <i class="delicious icon"></i>          </div>
+                            <div class="item">         <i class="deviantart icon"></i>         </div>
+                            <div class="item">         <i class="digg icon"></i>               </div>
+                            <div class="item">         <i class="dropbox icon"></i>            </div>
+                            <div class="item">         <i class="facebook icon"></i>           </div>
+
+                            <br />
+
+                            <div class="item">         <i class="flickr icon"></i>             </div>
+                            <div class="item">         <i class="github icon"></i>             </div>
+                            <div class="item">         <i class="google icon"></i>             </div>
+                            <div class="item">         <i class="lastfm icon"></i>             </div>
+                            <div class="item">         <i class="linux icon"></i>              </div>
+                            <div class="item">         <i class="pinterest icon"></i>          </div>
+                            <div class="item">         <i class="reddit icon"></i>             </div>
+                            <div class="item">         <i class="skype icon"></i>              </div>
+
+                            <br />
+
+                            <div class="item">         <i class="slideshare icon"></i>         </div>
+                            <div class="item">         <i class="soundcloud icon"></i>         </div>
+                            <div class="item">         <i class="spotify icon"></i>            </div>
+                            <div class="item">         <i class="stack overflow icon"></i>     </div>
+                            <div class="item">         <i class="steam icon"></i>              </div>
+                            <div class="item">         <i class="trello icon"></i>             </div>
+                            <div class="item">         <i class="tumblr icon"></i>             </div>
+                            <div class="item">         <i class="twitter icon"></i>            </div>
+
+                            <br />
+
+                            <div class="item">         <i class="vimeo icon"></i>              </div>
+                            <div class="item">         <i class="vine icon"></i>               </div>
+                            <div class="item">         <i class="vk icon"></i>                 </div>
+                            <div class="item">         <i class="whatsapp icon"></i>           </div>
+                            <div class="item">         <i class="windows icon"></i>            </div>
+                            <div class="item">         <i class="wordpress icon"></i>          </div>
+                            <div class="item">         <i class="yahoo icon"></i>              </div>
+                            <div class="item">         <i class="youtube icon"></i>            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thirteen wide column">
+                    <div class="two fields">
+                        <div class="field">
+                            <div class="ui input fluid">
+                                <input type="text" name="url" placeholder="Url..." value="{{site.url}}" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui input fluid">
+                                <input type="text" name="title" placeholder="Title..." value="{{site.title}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two wide column">
+                    <div class="field">
+                        <div class="url-fetch ui button primary fluid">
+                            Fetch
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="ui ribbon label">Accounts</h4>
+
+            <!-- Accounts goes here -->
+            <div class="accounts">
+                {{#each site.accounts}}
+                    {{> accountLine}}
+                {{/each}}
+            </div>
+            <div class="field text-right">
+                <a class="account-add">+ Add Account</a>
+            </div>
+
+
+            <h4 class="ui ribbon label">RSA Keys</h4>
+
+            <!-- SSH keys goes here -->
+            <div class="rsa-key">
+                {{#each site.keys}}
+                    {{> rsaLine}}
+                {{/each}}
+            </div>
+
+            <div class="field text-right">
+                <a class="rsa-add">+ Add RSA key</a>
+            </div>
+
+
+
+            <h4 class="ui dividing header">Other</h4>
+            <div class="markdown-icons">
+                <div class="ui icon buttons">
+                    <div class="ui button mdbold"><i class="bold icon"></i></div>
+                    <div class="ui button mditalic"><i class="italic icon"></i></div>
+                </div>
+                <div class="ui icon buttons">
+                    <div class="ui button mdh1">
+                        <i class="header icon"></i>
+                        <sub>1</sub>
+                    </div>
+                    <div class="ui button mdh2">
+                        <i class="header icon"></i>
+                        <sub>2</sub>
+                    </div>
+                    <div class="ui button mdh3">
+                        <i class="header icon"></i>
+                        <sub>3</sub>
+                    </div>
+                </div>
+                <div class="ui icon buttons">
+                    <div class="ui button mdlink"><i class="linkify icon"></i></div>
+                    <div class="ui button mdcode"><i class="code icon"></i></div>
+                    <div class="ui button mdquote"><i class="quote left icon"></i></div>
+                </div>
+                <div class="ui icon buttons">
+                    <div class="ui button mdunordered"><i class="list icon"></i></div>
+                    <div class="ui button mdordered"><i class="ordered list icon"></i></div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui input">
+                    <textarea id="markdown-note" class="markdown-area" name="note" placeholder="Any comment...">{{site.note}}</textarea>
+                </div>
+            </div>
+
+
+            <div class="text-right button-container">
+                {{#if canEditSite vault}}
+                    <div class="ui button submit green">
+                        Update
+                    </div>
+                {{/if}}
+                {{#if canDeleteSite vault}}
+                    <div class="ui delete button red">
+                        Delete
+                    </div>
+                {{/if}}
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal box -->
+    <div class="hidden">
+        <div class="ui fetch-empty small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                URL Error
+            </div>
+            <div class="content">
+                <p>You need to specify an url before fetching it's content</p>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    OK
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden">
+        <div class="ui site-delete small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Delete {{site.title}}
+            </div>
+            <div class="content">
+                <p>Are you sure you want to delete {{site.title}} ?</p>
+            </div>
+            <div class="actions">
+                <div class="ui negative button">
+                    No
+                </div>
+                <div class="ui positive right labeled icon button">
+                    Yes
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

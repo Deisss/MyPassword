@@ -1,0 +1,131 @@
+<template name="options">
+    {{> page inside="options-content" user=user }}
+</template>
+
+<template name="options-content">
+    <div id="page-options" class="page">
+        <h2 class="dividing">My Account</h2>
+        <form class="account-edit ui form">
+            <div class="ui one column aligned page grid">
+
+                <!-- login password -->
+                <div class="column">
+                    <h4 class="ui ribbon label">Account</h4>
+                    <div class="ui input fluid">
+                        <input type="text" name="username" value="{{user.username}}" placeholder="Username..." />
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h4 class="ui ribbon label">Password Change</h4>
+                    <div class="ui stackable grid">
+                        <div class="six wide column">
+                            <div class="ui input fluid">
+                                <input type="password" name="password-old" placeholder="Current password..." value="" />
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui input fluid">
+                                <input type="password" name="password-new" placeholder="New password..." value="" />
+                            </div>
+                        </div>
+                        <div class="four wide column">
+                            <div class="ui button primary fluid password-update">
+                                Update password
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Firstname lastname -->
+                <div class="column">
+                    <h4 class="ui ribbon label">A little bit more about you</h4>
+                    <div class="ui two column stackable grid">
+                        <div class="column">
+                            <div class="ui input fluid">
+                                <input type="text" name="firstname" value="{{user.firstname}}" placeholder="Firstname..." />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui input fluid">
+                                <input type="text" name="lastname" value="{{user.lastname}}" placeholder="Lastname..." />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- emails -->
+                <div class="column">
+                    <h4 class="ui ribbon label">Emails</h4>
+                    <div class="ui two column stackable grid emails">
+                        {{#each user.emails}}
+                            <div class="column">
+                                {{> emailLine}}
+                            </div>
+                        {{/each}}
+                    </div>
+                    <div class="text-right">
+                        <a class="email-add">+ Add email</a>
+                    </div>
+                </div>
+
+                <div class="column text-right button-container">
+                    <div class="ui button green update">
+                        Update
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Modal box -->
+    <div class="hidden">
+        <div class="ui password-error small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Error
+            </div>
+            <div class="content">
+                <p>We could not update your password, are you sure you enter correctly the current password?</p>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    OK
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="ui password-success small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Success
+            </div>
+            <div class="content">
+                <p>Your password has been changed, <b>you don't need</b> to sign in again...</p>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    OK
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="ui email-error small modal transition hidden">
+            <i class="close icon"></i>
+            <div class="header">
+                Error
+            </div>
+            <div class="content">
+                <p>You must have at least one email linked to your account</p>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    OK
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
