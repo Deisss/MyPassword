@@ -34,4 +34,4 @@ No need to say, you can also share password with it.
 
 The project is not consider as stable yet, so use it at your own risks. There is no warranty regarding security.
 
-Also, the design comes from [github swordfish](https://github.com/github-archive/swordfish) site, so credits goes to them for this part.
+Also, the design comes from [github swordfish](https://github.com/github-archive/swordfish) project, so credits goes to them for this part.
